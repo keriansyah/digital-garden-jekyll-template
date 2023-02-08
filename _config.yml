@@ -25,15 +25,7 @@ relative_permalinks: false
 
 plugins:
   - jekyll-last-modified-at
-  - jekyll-archives
-      enabled: [all]
-      layout: archive
-      permalinks:
-        year: '/:year/'
-        month: '/:year/:month/'
-        day: '/:year/:month/:day/'
-        tag: '/tag/:name/'
-        category: '/category/:name/'
+ 
 
 sass:
   sass_dir:          _sass
@@ -53,3 +45,5 @@ defaults:
       path: "_notes/**/*.md"
     values:
       layout: "note"
+
+
