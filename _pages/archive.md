@@ -1,6 +1,6 @@
 ---
 layout: archive
 title: Archive
-id: home
+id: archive
 permalink: /archive
 ---
