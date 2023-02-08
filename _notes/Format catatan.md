@@ -1,6 +1,6 @@
 ---
 title: Format catatan
-tags: ["firsttag","secondtag"]
+tags: forma
 ---
 
 Heading 1 atau h1 digunakan untuk title.
