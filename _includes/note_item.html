@@ -1,0 +1,10 @@
+<li class="posts-list__item">
+    <p>
+    <span class="muted">{{ note.date | date: "%b %Y" }}</span> -
+      {% if note == page %}
+        {{ note.title }}
+      {% else %}
+        <a class="internal-link" href="{{ note.url }}">{{ note.title }}</a>
+      {% endif %}
+    </p>
+  </li>

@@ -1,6 +1,7 @@
 ---
 title: Format catatan
 description: testing description
+categories: [programming, web-design, test]
 ---
 
 Heading 1 atau h1 digunakan untuk title.
@@ -17,3 +18,4 @@ Heading 6 atau h6, biasanya jarang digunakan.
 
 
 
+<p style="display:none">[[programming]]</p>

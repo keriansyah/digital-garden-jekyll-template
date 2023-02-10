@@ -2,8 +2,11 @@
 title: Notes with TOC
 description: testing TOC
 skip_toc: true
+categories: personal
+tags: programming
 ---
 
+***
 
 
 ## Multimodal Neurons in CLIP

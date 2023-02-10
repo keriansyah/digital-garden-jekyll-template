@@ -1,0 +1,18 @@
+<ul class="no-bullets">
+    {% for note in site.notes %}
+      {% if note.nolist %}
+        {% unless include.all %}{% continue %}{% endunless %}
+      {% endif %}
+  
+      {% if include.category %}
+        {% unless note.categories contains include.category %}{% continue %}{% endunless %}
+      {% endif %}
+
+      {% if include.tag %}
+      {% unless note.tags contains include.tag %}{% continue %}{% endunless %}
+    {% endif %}
+  
+  
+      {% include note_item.html note=note %}
+    {% endfor %}
+  </ul>
