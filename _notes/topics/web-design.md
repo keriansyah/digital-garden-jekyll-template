@@ -1,6 +1,7 @@
 ---
 title: Web Design
 nolist: true
+layout: page
 ---
 
 This is an example category page, for the "{{page.title}}" category.

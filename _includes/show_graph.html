@@ -1,0 +1,14 @@
+<button onclick="graphview()">Try it</button>
+{% include notes_graph.html %}
+
+<script>
+  function graphview() {
+    var x = document.getElementById('graph-wrapper');
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
+  }
+  </script>
+  

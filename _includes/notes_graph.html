@@ -30,11 +30,11 @@
   #graph-wrapper {
     background: #fcfcfc;
     border-radius: 4px;
-    max-width: 400px;
+    max-width: 30em;
   }
 </style>
 
-<div id="graph-wrapper">
+<div id="graph-wrapper" style="display: none;">
   <script>
     window.addEventListener("load", loadGraph);
 
@@ -46,13 +46,13 @@
         "sha512-FHsFVKQ/T1KWJDGSbrUhTJyS1ph3eRrxI228ND0EGaEp6v4a/vGwPWd3Dtd/+9cI7ccofZvl/wulICEurHN1pg==";
       document.body.appendChild(oScript);
       oScript.onload = () => {
-        const MINIMAL_NODE_SIZE = 6;
+        const MINIMAL_NODE_SIZE = 4;
         const MAX_NODE_SIZE = 12;
         const ACTIVE_RADIUS_FACTOR = 1.5;
         const STROKE = 1;
-        const FONT_SIZE = 11;
+        const FONT_SIZE = 12;
         const TICKS = 200;
-        const FONT_BASELINE = 40;
+        const FONT_BASELINE = 20;
         const MAX_LABEL_LENGTH = 20;
 
         const graphData = {% include notes_graph.json %}
@@ -168,7 +168,7 @@
         const graphWrapper = document.getElementById('graph-wrapper')
         const element = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         element.setAttribute("width", graphWrapper.getBoundingClientRect().width);
-        element.setAttribute("height", window.innerHeight / 2);
+        element.setAttribute("height", window.innerHeight * 0.8);
         graphWrapper.appendChild(element);
 
         const reportWindowSize = () => {
@@ -178,7 +178,8 @@
 
         window.onresize = reportWindowSize;
 
-        const svg = d3.select("svg");
+        
+        const svg = d3.select("svg"), margin = {top: 40, right: 40, bottom: 40, left: 200};
         const width = Number(svg.attr("width"));
         const height = Number(svg.attr("height"));
         let zoomLevel = 1;
@@ -193,16 +194,18 @@
             d3
               .forceLink(linksData)
               .id((d) => d.id)
-              .distance(70)
+              .distance(40)
           )
           .force("center", d3.forceCenter(width / 2, height / 2))
           .force("collision", d3.forceCollide().radius(50))
           .stop();
 
-        const g = svg.append("g");
+        const g = svg.append("g").attr("transform", "translate(" + margin.left + ")");
         let link = g.append("g").attr("class", "links").selectAll(".link");
         let node = g.append("g").attr("class", "nodes").selectAll(".node");
         let text = g.append("g").attr("class", "text").selectAll(".text");
+
+        
 
         const resize = () => {
           if (d3.event) {
@@ -226,6 +229,7 @@
             .filter((_d, i, nodes) => d3.select(nodes[i]).attr("active"))
             .attr("r", (d) => zoomOrKeep(ACTIVE_RADIUS_FACTOR * nodeSize[d.id]));
         };
+
 
         const ticked = () => {
           node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
