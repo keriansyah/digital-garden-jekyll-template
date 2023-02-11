@@ -1,6 +1,5 @@
 ---
 title: Topic
-layout: page
 permalink: /categories
 ---
 

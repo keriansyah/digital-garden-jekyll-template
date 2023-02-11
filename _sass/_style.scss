@@ -8,6 +8,31 @@ svg {
   height: auto;
 }
 
+.arch {
+  display: flex;
+  max-width: inherit;
+  margin: 20px 0;
+}
+
+.arch-ul {
+  list-style: none;
+line-height: 2em;
+margin: 0;
+padding: 0;
+}
+
+.arch-ul > li {
+  border-bottom: 1px solid black;
+}
+
+.arch-ul > li > a {
+  text-decoration: none;
+}
+
+.childright {
+  margin-left: auto;
+}
+
 
 $color-primary: hsl(0, 0%, 10%);
 $color-text: hsl(0, 2.5%, 31.4%);
