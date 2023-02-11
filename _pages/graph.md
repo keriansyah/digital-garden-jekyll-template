@@ -4,4 +4,4 @@ layout: graph
 permalink: /graph
 ---
 
-{% include notes_graph.html %}
+{% include notes_graph_all.html %}
